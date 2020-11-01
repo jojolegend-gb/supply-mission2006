@@ -40,7 +40,7 @@ function setup() {
 
 	
 	package_options={
-		restitution:0.55, 
+		restitution:10, 
 		isStatic:true
 	}
 	packageBody = Bodies.circle(width/2 , 200 , 5 ,package_options);
@@ -64,30 +64,30 @@ function draw() {
 			state=done;
 		}
 	}
-	else if(state===done){
-		fill("blue");
-		text("PACKAGE DROPPED!!",100,300);
-	}
+	
 
   rectMode(CENTER);
   background(0);
   packageSprite.x= packageBody.position.x ;
   packageSprite.y= packageBody.position.y ;
+  //translator(100,100);
   drawSprites();
  
 }
 
 function keyPressed() {
- if (keyCode === DOWN_ARROW) {
+ 
     // Look at the hints in the document and understand how to make the package body fall only on
 	package_options={
 		isStatic:false,
-		restitution:0.55
+		restitution:0.8
 	}
+	
 	packageBody = Bodies.circle(width/2 , 200 , 5 ,package_options);
 	World.add(world, packageBody);
   }
-}
+
+
 
 
 
